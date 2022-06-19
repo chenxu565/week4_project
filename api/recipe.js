@@ -6,4 +6,4 @@ router.get("/:food", (req, res) =>{
   //   console.log(req.params.food);
   })
 
-  module.exports = router;
+module.exports = router;
