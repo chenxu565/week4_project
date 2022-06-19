@@ -9,6 +9,26 @@ if(document.readyState !== "loading"){
 }
 
 
+function initializeCode(){
+    const container = document.getElementById("container");
+    let recipeName = document.createElement("p");
+    let instructions = document.createElement("p");
+    let ingredients = document.createElement("p");
+
+    fetch("http://localhost:1234/recipe/pizza")
+       .then(response => response.json())
+       .then(data => {
+            recipeName.innerHTML = data["name"];
+            instructions.innerHTML = data["instructions"];
+            ingredients.innerHTML = data["ingredients"];
+        //    console.log(data.name);
+       });
+    container.appendChild(recipeName);
+    container.appendChild(instructions);
+    container.appendChild(ingredients);
+
+}
+/*
 function initializeCode() {
     const options = {
         edge: 'right',
@@ -32,7 +52,7 @@ function initializeCode() {
         
         const vip = document.getElementById("vip");
 
-        fetch("http://localhost:1234/api/poems", {
+        fetch("http://localhost:8000/api/poems", {
             method: "post",
             headers: {
                 "Content-type": "application/json"
@@ -53,7 +73,7 @@ function initializeCode() {
 
     addPoemButtonFromApi.addEventListener("click", function() {
 
-        fetch("http://localhost:1234/api/poems")
+        fetch("http://localhost:8000/api/poems")
             .then(response => response.json())
             .then(data => {
                 data.forEach(poem => {
@@ -100,4 +120,4 @@ function addNewPoem(poem, vip) {
 
     theWall.appendChild(newListItem);
     console.log("Working... adding new stuff...")
-}
+}*/
