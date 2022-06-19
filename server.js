@@ -18,15 +18,12 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/poems", require("./api/poems.js"));
-
+app.use("/recipe", require("./api/recipe.js"));
 
 app.listen(port, () => console.log(`Server listening a port ${port}!`));
 
 
-app.get("/recipe/:food", (req, res) =>{
-  res.json({name: req.params.food, instructions: ['a'], ingredients: ['b']});
-//   console.log(req.params.food);
-})
+
 
 
 /*
