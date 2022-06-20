@@ -1,3 +1,6 @@
+let ingredients_list = [];
+let instructions_list = [];
+
 if(document.readyState !== "loading"){
     console.log("Document is ready");
     initializeCode();
@@ -7,6 +10,7 @@ if(document.readyState !== "loading"){
         initializeCode();
     })
 }
+
 
 
 function initializeCode(){
@@ -27,6 +31,21 @@ function initializeCode(){
     container.appendChild(instructions);
     container.appendChild(ingredients);
 
+    const addIngredientButton = document.getElementById("add-ingredient");
+    const addInstructionButton = document.getElementById("add-instruction");
+    const submitButton = document.getElementById("add-poem");
+
+    addIngredientButton.addEventListener("click", function(){
+        let ingredientText = document.getElementById("ingredients-text");
+        ingredients_list.push(ingredientText.value);
+        console.log(ingredients_list);
+    });
+
+    addInstructionButton.addEventListener("click", function(){
+        let instructionText = document.getElementById("instructions-text");
+        instructions_list.push(instructionText.value);
+        console.log(instructions_list);
+    });
 }
 /*
 function initializeCode() {
