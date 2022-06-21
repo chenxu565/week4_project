@@ -52,9 +52,9 @@ function initializeCode(){
         // console.log('{ "name": "' + recipeName + '", "ingredients": "'+ JSON.stringify(JSON.stringify(ingredients_array))  + '", "instructions": "' + JSON.stringify(JSON.stringify(instructions_array)) + '" }');
         // console.log(recipeName);
         let json_recipe = {
-            "name": recipeName,
-            "ingredients": ingredients_array,
-            "instructions": instructions_array
+            name: recipeName,
+            ingredients: ingredients_array,
+            instructions: instructions_array
         }
         console.log(JSON.stringify(json_recipe));
         console.log(JSON.stringify(JSON.stringify(json_recipe)));
