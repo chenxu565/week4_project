@@ -6,4 +6,9 @@ router.get("/:food", (req, res) =>{
   //   console.log(req.params.food);
   })
 
+router.post("/recipe/", (req, res) => {
+  console.log(req.body);
+  res.send(req.body);
+})
+
 module.exports = router;

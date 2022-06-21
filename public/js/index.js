@@ -1,5 +1,5 @@
-let ingredients_list = [];
-let instructions_list = [];
+let ingredients_array = [];
+let instructions_array = [];
 
 if(document.readyState !== "loading"){
     console.log("Document is ready");
@@ -33,18 +33,44 @@ function initializeCode(){
 
     const addIngredientButton = document.getElementById("add-ingredient");
     const addInstructionButton = document.getElementById("add-instruction");
-    const submitButton = document.getElementById("add-poem");
+    const submitButton = document.getElementById("submit");
 
     addIngredientButton.addEventListener("click", function(){
         let ingredientText = document.getElementById("ingredients-text");
-        ingredients_list.push(ingredientText.value);
-        console.log(ingredients_list);
+        ingredients_array.push(ingredientText.value);
+        console.log(ingredients_array);
     });
 
     addInstructionButton.addEventListener("click", function(){
         let instructionText = document.getElementById("instructions-text");
-        instructions_list.push(instructionText.value);
-        console.log(instructions_list);
+        instructions_array.push(instructionText.value);
+        console.log(instructions_array);
+    });
+
+    submitButton.addEventListener("click", function(){
+        let recipeName = document.getElementById("name-text").value;
+        // console.log('{ "name": "' + recipeName + '", "ingredients": "'+ JSON.stringify(JSON.stringify(ingredients_array))  + '", "instructions": "' + JSON.stringify(JSON.stringify(instructions_array)) + '" }');
+        // console.log(recipeName);
+        let json_recipe = {
+            "name": recipeName,
+            "ingredients": ingredients_array,
+            "instructions": instructions_array
+        }
+        console.log(JSON.stringify(json_recipe));
+        console.log(JSON.stringify(JSON.stringify(json_recipe)));
+        console.log(json_recipe);
+
+        fetch("http://localhost:1234/recipe", {
+            method: "post",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(json_recipe)
+           })
+           .then(response => response.json())
+           .then(data => {
+               console.log(data);
+           });
     });
 }
 /*
