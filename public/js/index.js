@@ -43,12 +43,14 @@ function initializeCode(){
         let ingredientText = document.getElementById("ingredients-text");
         ingredients_array.push(ingredientText.value);
         console.log(ingredients_array);
+        ingredientText.value = '';
     });
 
     addInstructionButton.addEventListener("click", function(){
         let instructionText = document.getElementById("instructions-text");
         instructions_array.push(instructionText.value);
         console.log(instructions_array);
+        instructionText.value = '';
     });
 
     submitButton.addEventListener("click", function(){
