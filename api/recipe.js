@@ -7,7 +7,8 @@ router.get("/:food", (req, res) =>{
   })
 
 router.post("/", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
+  console.log("json received.");
   res.send(req.body);
 })
 

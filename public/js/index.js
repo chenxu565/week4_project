@@ -1,3 +1,5 @@
+// const { response } = require("express");
+
 let ingredients_array = [];
 let instructions_array = [];
 
@@ -15,6 +17,7 @@ if(document.readyState !== "loading"){
 
 function initializeCode(){
     const container = document.getElementById("container");
+    let recipeDiv = document.createElement("div");
     let recipeName = document.createElement("p");
     let instructions = document.createElement("p");
     let ingredients = document.createElement("p");
@@ -27,9 +30,10 @@ function initializeCode(){
             ingredients.innerHTML = data["ingredients"];
         //    console.log(data.name);
        });
-    container.appendChild(recipeName);
-    container.appendChild(instructions);
-    container.appendChild(ingredients);
+    recipeDiv.appendChild(recipeName);
+    recipeDiv.appendChild(instructions);
+    recipeDiv.appendChild(ingredients);
+    container.appendChild(recipeDiv);
 
     const addIngredientButton = document.getElementById("add-ingredient");
     const addInstructionButton = document.getElementById("add-instruction");
@@ -56,9 +60,13 @@ function initializeCode(){
             ingredients: ingredients_array,
             instructions: instructions_array
         }
-        console.log(JSON.stringify(json_recipe));
-        console.log(JSON.stringify(JSON.stringify(json_recipe)));
-        console.log(json_recipe);
+        // console.log(JSON.stringify(json_recipe));
+        // console.log(JSON.stringify(JSON.stringify(json_recipe)));
+        // console.log(json_recipe);
+        let recipeDiv_ = document.createElement("div");
+        let recipeName_ = document.createElement("p");
+        let instructions_ = document.createElement("p");
+        let ingredients_ = document.createElement("p");
 
         fetch("http://localhost:1234/recipe", {
             method: "post",
@@ -67,10 +75,20 @@ function initializeCode(){
             },
             body: JSON.stringify(json_recipe)
            })
+        //    .then(response=>{
+        //         console.log('anything?');
+        //    });
            .then(response => response.json())
            .then(data => {
-               console.log(data);
+                recipeName_.innerHTML = data["name"];
+                instructions_.innerHTML = data["instructions"];
+                ingredients_.innerHTML = data["ingredients"];
            });
+           recipeDiv_.appendChild(recipeName_);
+           recipeDiv_.appendChild(instructions_);
+           recipeDiv_.appendChild(ingredients_);
+           container.appendChild(recipeDiv_);        
+
     });
 }
 /*
