@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/:food", (req, res) =>{
-    res.json({name: req.params.food, instructions: ['Example'], ingredients: ['Example']});
+    res.json({name: req.params.food, instructions: ['Example instructions'], ingredients: ['Example ingredients']});
   //   console.log(req.params.food);
   })
 
