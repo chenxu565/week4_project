@@ -31,8 +31,8 @@ function initializeCode(){
         //    console.log(data.name);
        });
     recipeDiv.appendChild(recipeName);
-    recipeDiv.appendChild(instructions);
     recipeDiv.appendChild(ingredients);
+    recipeDiv.appendChild(instructions);
     container.appendChild(recipeDiv);
 
     const addIngredientButton = document.getElementById("add-ingredient");
@@ -85,8 +85,8 @@ function initializeCode(){
                 ingredients_.innerHTML = data["ingredients"];
            });
            recipeDiv_.appendChild(recipeName_);
-           recipeDiv_.appendChild(instructions_);
            recipeDiv_.appendChild(ingredients_);
+           recipeDiv_.appendChild(instructions_);
            container.appendChild(recipeDiv_);        
 
     });
