@@ -93,9 +93,9 @@ function initializeCode(){
 
         let formData = new FormData();
         let input = document.getElementById("image-input");
-        for (let file of input.files){
-            console.log(file);
-            formData.append('images', file);
+        console.log(input.files.length);
+        for (let i=0; i<input.files.length; i++){
+            formData.append('images', input.files.item(i));
         }
         fetch("http://localhost:1234/images/",{
             method: "post",
