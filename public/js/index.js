@@ -53,6 +53,9 @@ function initializeCode(){
         instructionText.value = '';
     });
 
+    let fd = new FormData();
+    let input = document.getElementById("image-input");
+
     submitButton.addEventListener("click", function(){
         let recipeName = document.getElementById("name-text").value;
         // console.log('{ "name": "' + recipeName + '", "ingredients": "'+ JSON.stringify(JSON.stringify(ingredients_array))  + '", "instructions": "' + JSON.stringify(JSON.stringify(instructions_array)) + '" }');
@@ -91,6 +94,10 @@ function initializeCode(){
            recipeDiv_.appendChild(instructions_);
            container.appendChild(recipeDiv_);        
 
+           for (const file of input.files){
+            console.log(file);
+            fd.append('images', file);
+           }
     });
 }
 /*
