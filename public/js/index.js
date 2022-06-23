@@ -53,9 +53,6 @@ function initializeCode(){
         instructionText.value = '';
     });
 
-    let fd = new FormData();
-    let input = document.getElementById("image-input");
-
     submitButton.addEventListener("click", function(){
         let recipeName = document.getElementById("name-text").value;
         // console.log('{ "name": "' + recipeName + '", "ingredients": "'+ JSON.stringify(JSON.stringify(ingredients_array))  + '", "instructions": "' + JSON.stringify(JSON.stringify(instructions_array)) + '" }');
@@ -89,15 +86,22 @@ function initializeCode(){
                 instructions_.innerHTML = data["instructions"];
                 ingredients_.innerHTML = data["ingredients"];
            });
-           recipeDiv_.appendChild(recipeName_);
-           recipeDiv_.appendChild(ingredients_);
-           recipeDiv_.appendChild(instructions_);
-           container.appendChild(recipeDiv_);        
+            recipeDiv_.appendChild(recipeName_);
+            recipeDiv_.appendChild(ingredients_);
+            recipeDiv_.appendChild(instructions_);
+            container.appendChild(recipeDiv_);    
 
-           for (const file of input.files){
-            console.log(file);
-            fd.append('images', file);
-           }
+            let fd = new FormData();
+             let input = document.getElementById("image-input");
+            for (let file of input.files){
+                console.log(file);
+                fd.append('images', file);
+            }
+        fetch("http://localhost:1234/images/",{
+            method: "post",
+            body: fd
+           });
+
     });
 }
 /*
