@@ -86,20 +86,20 @@ function initializeCode(){
                 instructions_.innerHTML = data["instructions"];
                 ingredients_.innerHTML = data["ingredients"];
            });
-            recipeDiv_.appendChild(recipeName_);
-            recipeDiv_.appendChild(ingredients_);
-            recipeDiv_.appendChild(instructions_);
-            container.appendChild(recipeDiv_);    
+        recipeDiv_.appendChild(recipeName_);
+        recipeDiv_.appendChild(ingredients_);
+        recipeDiv_.appendChild(instructions_);
+        container.appendChild(recipeDiv_);    
 
-            let fd = new FormData();
-             let input = document.getElementById("image-input");
-            for (let file of input.files){
-                console.log(file);
-                fd.append('images', file);
-            }
+        let formData = new FormData();
+        let input = document.getElementById("image-input");
+        for (let file of input.files){
+            console.log(file);
+            formData.append('images', file);
+        }
         fetch("http://localhost:1234/images/",{
             method: "post",
-            body: fd
+            body: formData
            });
 
     });
