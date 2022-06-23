@@ -70,7 +70,7 @@ function initializeCode(){
         let instructions_ = document.createElement("p");
         let ingredients_ = document.createElement("p");
 
-        fetch("http://localhost:1234/recipe", {
+        fetch("http://localhost:1234/recipe/", {
             method: "post",
             headers: {
                 "Content-type": "application/json"
