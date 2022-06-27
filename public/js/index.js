@@ -16,6 +16,13 @@ if(document.readyState !== "loading"){
 
 
 function initializeCode(){
+
+    const options={};
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+
+
+
     const container = document.getElementById("viewing");
     let recipeDiv = document.createElement("div");
     let recipeName = document.createElement("p");
