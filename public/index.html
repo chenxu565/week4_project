@@ -24,19 +24,23 @@
   <header>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Recipe</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <a href="#!" class="brand-logo">Recipe</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">          
           <li><a href="#">Main</a></li>
           <li><a href="#">Menu</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
     </nav>
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="#">Main</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
   </header>
     <div class="container" id="container">
-      <div id="viewing">
-
-      </div>
+      <div id="viewing" class="col"></div>
       <div id="adding" class="col">
         <input type="text" id="name-text">
         <h4>Ingredients</h4>
