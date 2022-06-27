@@ -6,33 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe</title>
 
-    <!-- Compiled and minified CSS 
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
--->
-    <!-- Compiled and minified JavaScript 
+
+    <!-- Compiled and minified JavaScript     -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    -->
-    <!-- Icons
+
+    <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- -->
+
     <script src="js/index.js"></script>
     <!--
     <link rel="stylesheet" type="text/css" href="css/wall.css" />
 -->
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Recipe</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">Main</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
     <div class="container" id="container">
+      <div id="viewing">
+
+      </div>
+      <div id="adding" class="col">
         <input type="text" id="name-text">
         <h4>Ingredients</h4>
         <textarea id="ingredients-text"></textarea>
-        <button id="add-ingredient" type="button">Add ingredient</button>
+        <button id="add-ingredient" type="button" class="btn">Add ingredient</button>
         <h4>instructions</h4>
         <textarea id="instructions-text"></textarea>
-        <button id="add-instruction" type="button">Add instruction</button>
-        <button id="submit" type="submit">Submit</button>
+        <button id="add-instruction" type="button" class="btn">Add instruction</button>
+        <button id="submit" type="submit" class="btn">Submit</button>
         <p>
         <label for="image-input">Choose images to upload (PNG, JPG)</label>
         <input id="image-input" type="file" accept=".jpg, .jpeg, .png" multiple></p>
+      </div>
       <!--  <div id="main-canvas">-->
 
     <!--    <header>

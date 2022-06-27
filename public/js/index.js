@@ -16,7 +16,7 @@ if(document.readyState !== "loading"){
 
 
 function initializeCode(){
-    const container = document.getElementById("container");
+    const container = document.getElementById("viewing");
     let recipeDiv = document.createElement("div");
     let recipeName = document.createElement("p");
     let instructions = document.createElement("p");
